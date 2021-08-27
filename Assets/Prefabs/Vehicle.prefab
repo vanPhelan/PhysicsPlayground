@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 955925862307808351}
+  - component: {fileID: 176148918920488709}
   m_Layer: 0
   m_Name: Vehicle
   m_TagString: Untagged
@@ -35,6 +36,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &176148918920488709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7653237106148288142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 631439deffde9244288d32f52a977e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frontLeft: {fileID: 6454845769630109923}
+  frontRight: {fileID: 6953421403383272096}
+  rearLeft: {fileID: 6919319696295565033}
+  rearRight: {fileID: 6170398031015327910}
 --- !u!1 &8316045333463857416
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +188,7 @@ HingeJoint:
   m_UseMotor: 0
   m_Motor:
     targetVelocity: 0
-    force: 0
+    force: 100
     freeSpin: 0
   m_UseLimits: 0
   m_Limits:
@@ -206,7 +223,7 @@ HingeJoint:
   m_UseMotor: 0
   m_Motor:
     targetVelocity: 0
-    force: 0
+    force: 100
     freeSpin: 0
   m_UseLimits: 0
   m_Limits:
@@ -241,7 +258,7 @@ HingeJoint:
   m_UseMotor: 0
   m_Motor:
     targetVelocity: 0
-    force: 0
+    force: 100
     freeSpin: 0
   m_UseLimits: 0
   m_Limits:
@@ -276,7 +293,7 @@ HingeJoint:
   m_UseMotor: 0
   m_Motor:
     targetVelocity: 0
-    force: 0
+    force: 100
     freeSpin: 0
   m_UseLimits: 0
   m_Limits:

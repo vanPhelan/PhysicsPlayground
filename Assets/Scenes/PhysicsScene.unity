@@ -1875,14 +1875,6 @@ PrefabInstance:
       propertyPath: m_UseMotor
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6170398031015327910, guid: 55c6e772297de4341a47b2e77266da5e, type: 3}
-      propertyPath: m_Motor.targetVelocity
-      value: -500
-      objectReference: {fileID: 0}
-    - target: {fileID: 6170398031015327910, guid: 55c6e772297de4341a47b2e77266da5e, type: 3}
-      propertyPath: m_Motor.force
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 6422411496210216418, guid: 55c6e772297de4341a47b2e77266da5e, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: 1.0000005
@@ -1926,14 +1918,6 @@ PrefabInstance:
     - target: {fileID: 6919319696295565033, guid: 55c6e772297de4341a47b2e77266da5e, type: 3}
       propertyPath: m_UseMotor
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6919319696295565033, guid: 55c6e772297de4341a47b2e77266da5e, type: 3}
-      propertyPath: m_Motor.targetVelocity
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 6919319696295565033, guid: 55c6e772297de4341a47b2e77266da5e, type: 3}
-      propertyPath: m_Motor.force
-      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6953421403383272096, guid: 55c6e772297de4341a47b2e77266da5e, type: 3}
       propertyPath: m_ConnectedAnchor.x
