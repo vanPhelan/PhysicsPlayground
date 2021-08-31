@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &123668107 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 691602119326751975, guid: 4b37289aab1101d4bae4df4b764bf5e4, type: 3}
+  m_PrefabInstance: {fileID: 5976028039455963979}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &725535187
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,6 +220,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &949587174
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 949587175}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &949587175
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949587174}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 123668107}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1232504450
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,6 +357,7 @@ GameObject:
   - component: {fileID: 1401155771}
   - component: {fileID: 1401155770}
   - component: {fileID: 1401155769}
+  - component: {fileID: 1401155772}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -394,6 +430,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 30.34, y: 90, z: 0}
+--- !u!114 &1401155772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401155768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f10157728df92f4da3187f89946a562, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 949587175}
+  distanceFromTarget: 10
+  sensitivity: 5
+  invertY: 0
 --- !u!1 &1572865240
 GameObject:
   m_ObjectHideFlags: 0
