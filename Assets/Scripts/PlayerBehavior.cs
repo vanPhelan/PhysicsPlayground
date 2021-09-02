@@ -16,8 +16,8 @@ public class PlayerBehavior : MonoBehaviour
     [SerializeField]
     private Animator _animator;
 
-    private Vector3 _desiredVelocity;
-    private Vector3 _airVelocity;
+    private Vector3 _horizontalVelocity;
+    private Vector3 _verticalVelocity;
     private bool _isJumpDesired = false;
     private bool _isGrounded = false;
 
@@ -40,17 +40,33 @@ public class PlayerBehavior : MonoBehaviour
         Vector3 cameraRight = playerCamera.transform.right;
 
         //Find the desired velocity
-        _desiredVelocity = (cameraForward * inputForward) + (cameraRight * inputRight);
+        _horizontalVelocity = (cameraForward * inputForward) + (cameraRight * inputRight);
 
         //Get jump input
         _isJumpDesired = Input.GetButtonDown("Jump");
 
         //Set movement magnitude
-        _desiredVelocity.Normalize();
-        _desiredVelocity *= speed;
+        _horizontalVelocity.Normalize();
+        _horizontalVelocity *= speed;
 
         //Check for ground
         _isGrounded = _controller.isGrounded;
+
+        //Apply jump strength
+        if (_isJumpDesired && _isGrounded)
+        {
+            _verticalVelocity.y = jumpStrength;
+            _isJumpDesired = false;
+        }
+
+        //Stop on ground
+        if (_isGrounded && _verticalVelocity.y < 0.0f)
+        {
+            _verticalVelocity.y = -1.0f;
+        }
+
+        //Apply gravity
+        _verticalVelocity += Physics.gravity * gravityModifier * Time.deltaTime;
 
         //Update animations
         if (faceWithCamera)
@@ -61,32 +77,14 @@ public class PlayerBehavior : MonoBehaviour
         }
         else
         {
-            if (_desiredVelocity != Vector3.zero)
-                transform.forward = _desiredVelocity.normalized;
-            _animator.SetFloat("Speed", _desiredVelocity.magnitude / speed);
+            if (_horizontalVelocity != Vector3.zero)
+                transform.forward = _horizontalVelocity.normalized;
+            _animator.SetFloat("Speed", _horizontalVelocity.magnitude / speed);
         }
         _animator.SetBool("Jump", !_isGrounded);
-
-        //Apply jump strength
-        if (_isJumpDesired && _isGrounded)
-        {
-            _airVelocity.y = jumpStrength;
-            _isJumpDesired = false;
-        }
-
-        //Stop on ground
-        if (_isGrounded && _airVelocity.y < 0.0f)
-        {
-            _airVelocity.y = -1.0f;
-        }
-
-        //Apply gravity
-        _airVelocity += Physics.gravity * gravityModifier * Time.deltaTime;
-
-        //Add air velocity
-        _desiredVelocity += _airVelocity;
+        _animator.SetFloat("VerticalSpeed", _verticalVelocity.y / jumpStrength);
 
         //Move
-        _controller.Move(_desiredVelocity * Time.deltaTime);
+        _controller.Move((_horizontalVelocity + _verticalVelocity) * Time.deltaTime);
     }
 }
