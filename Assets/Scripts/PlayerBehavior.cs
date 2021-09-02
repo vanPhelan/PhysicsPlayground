@@ -8,10 +8,13 @@ public class PlayerBehavior : MonoBehaviour
     public float jumpStrength = 10.0f;
     public float airControl = 1.0f;
     public float gravityModifier = 1.0f;
+    public bool faceWithCamera = true;
 
     public Camera playerCamera;
     
     private CharacterController _controller;
+    [SerializeField]
+    private Animator _animator;
 
     private Vector3 _desiredVelocity;
     private Vector3 _airVelocity;
@@ -48,6 +51,21 @@ public class PlayerBehavior : MonoBehaviour
 
         //Check for ground
         _isGrounded = _controller.isGrounded;
+
+        //Update animations
+        if (faceWithCamera)
+        {
+            transform.forward = cameraForward;
+            _animator.SetFloat("Speed", inputForward);
+            _animator.SetFloat("Direction", inputRight);
+        }
+        else
+        {
+            if (_desiredVelocity != Vector3.zero)
+                transform.forward = _desiredVelocity.normalized;
+            _animator.SetFloat("Speed", _desiredVelocity.magnitude / speed);
+        }
+        _animator.SetBool("Jump", !_isGrounded);
 
         //Apply jump strength
         if (_isJumpDesired && _isGrounded)
