@@ -411,6 +411,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1400707123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1400707125}
+  - component: {fileID: 1400707124}
+  m_Layer: 0
+  m_Name: SphereLauncher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1400707124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400707123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed5ba24b1261dbb4797db98d4f927dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 5976028039455963980}
+  projectile: {fileID: 4620876068832953208, guid: fc4983b0406733b4992c92d57bd15f21, type: 3}
+  projectileTime: 2
+--- !u!4 &1400707125
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400707123}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.47, y: 3.51, z: -10.69}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1401155768
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,3 +809,8 @@ PrefabInstance:
       objectReference: {fileID: 1401155770}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b37289aab1101d4bae4df4b764bf5e4, type: 3}
+--- !u!4 &5976028039455963980 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 691602119326751975, guid: 4b37289aab1101d4bae4df4b764bf5e4, type: 3}
+  m_PrefabInstance: {fileID: 5976028039455963979}
+  m_PrefabAsset: {fileID: 0}
