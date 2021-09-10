@@ -440,9 +440,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed5ba24b1261dbb4797db98d4f927dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectile: {fileID: -5266653265496493329, guid: fc4983b0406733b4992c92d57bd15f21, type: 3}
+  useTarget: 1
   target: {fileID: 5976028039455963980}
-  projectile: {fileID: 4620876068832953208, guid: fc4983b0406733b4992c92d57bd15f21, type: 3}
+  useLaunchingVelocity: 1
+  launchingVelocity: {x: 0, y: 0, z: 10}
+  useLandingVelocity: 0
+  landingVelocity: {x: 0, y: 0, z: 0}
+  useProjectileTime: 1
   projectileTime: 2
+  useGravityModifier: 1
+  gravityModifier: 1
 --- !u!4 &1400707125
 Transform:
   m_ObjectHideFlags: 0
