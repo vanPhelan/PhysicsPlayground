@@ -89,15 +89,15 @@ public class ProjectileLauncher : MonoBehaviour
         return initialVelocity;
     }
 
-    private Vector3 FindInitialVelocity(Vector3 displacement, Vector3 finalVelocity, Vector3 acceleration)
-    {
-        //v^2 = v0^2 + 2a∆x
-        //v^2 - 2a∆x = v0^2
-        //sqrt(v^2 - 2a∆x) = v0
-        //v0 = sqrt(v^2 - 2a∆x)
-        //v0 = v - sqrt(2a∆x)
-        //Vector3 initialVelocity = 
-    }
+    //private Vector3 FindInitialVelocity(Vector3 displacement, Vector3 finalVelocity, Vector3 acceleration)
+    //{
+    //    //v^2 = v0^2 + 2a∆x
+    //    //v^2 - 2a∆x = v0^2
+    //    //sqrt(v^2 - 2a∆x) = v0
+    //    //v0 = sqrt(v^2 - 2a∆x)
+    //    //v0 = v - sqrt(2a∆x)
+    //    Vector3 initialVelocity = 
+    //}
 
     private Vector3 FindAcceleration(Vector3 displacement, Vector3 initialVelocity, float time)
     {
