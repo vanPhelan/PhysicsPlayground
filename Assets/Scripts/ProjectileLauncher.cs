@@ -96,7 +96,7 @@ public class ProjectileLauncher : MonoBehaviour
     //    //sqrt(v^2 - 2a∆x) = v0
     //    //v0 = sqrt(v^2 - 2a∆x)
     //    //v0 = v - sqrt(2a∆x)
-    //    Vector3 initialVelocity = 
+    //    Vector3 initialVelocity = finalVelocity - (Vector3.Cross(acceleration, displacement) * 2);
     //}
 
     private Vector3 FindAcceleration(Vector3 displacement, Vector3 initialVelocity, float time)

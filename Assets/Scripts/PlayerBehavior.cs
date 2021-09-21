@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerBehavior : MonoBehaviour
 {
+    public float accelerationMagnitude = 0.5f;
     public float speed = 5.0f;
     public float jumpStrength = 10.0f;
     public float airControl = 1.0f;
@@ -18,8 +19,8 @@ public class PlayerBehavior : MonoBehaviour
 
     private Vector3 _horizontalVelocity;
     private Vector3 _verticalVelocity;
-    private bool _isJumpDesired = false;
     private bool _isGrounded = false;
+    private float _deltaRotation = 0.0f;
 
     private void Awake()
     {
@@ -32,31 +33,48 @@ public class PlayerBehavior : MonoBehaviour
         float inputForward = Input.GetAxis("Vertical");
         float inputRight = Input.GetAxis("Horizontal");
 
-        //Get camera forward
+        //Get camera forward vector
         Vector3 cameraForward = playerCamera.transform.forward;
         cameraForward.y = 0.0f;
         cameraForward.Normalize();
-        //Get camera right
+        //Get camera right vector
         Vector3 cameraRight = playerCamera.transform.right;
 
-        //Find the desired velocity
-        _horizontalVelocity = (cameraForward * inputForward) + (cameraRight * inputRight);
-
         //Get jump input
-        _isJumpDesired = Input.GetButtonDown("Jump");
+        bool jumpInput = Input.GetButtonDown("Jump");
 
-        //Set movement magnitude
-        _horizontalVelocity.Normalize();
-        _horizontalVelocity *= speed;
+        //Calculate acceleration
+        Vector3 horizontalAcceleration = (cameraForward * inputForward) + (cameraRight * inputRight);
+        horizontalAcceleration.Normalize();
+        horizontalAcceleration *= accelerationMagnitude;
+
+        //Accelerate
+        _horizontalVelocity += horizontalAcceleration * Time.deltaTime;
+        if (_horizontalVelocity.magnitude > speed)
+        {
+            _horizontalVelocity.Normalize();
+            _horizontalVelocity *= speed;
+        }
+
+        //Decelerate
+        if (horizontalAcceleration.magnitude == 0.0f)
+        {
+            Vector3 horizontalDeceleration = _horizontalVelocity.normalized * accelerationMagnitude;
+            _horizontalVelocity -= horizontalDeceleration * Time.deltaTime;
+            if (_horizontalVelocity.magnitude < accelerationMagnitude)
+            {
+                _horizontalVelocity = Vector3.zero;
+            }
+        }
 
         //Check for ground
         _isGrounded = _controller.isGrounded;
 
         //Apply jump strength
-        if (_isJumpDesired && _isGrounded)
+        if (jumpInput && _isGrounded)
         {
             _verticalVelocity.y = jumpStrength;
-            _isJumpDesired = false;
+            jumpInput = false;
         }
 
         //Stop on ground
